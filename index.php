@@ -13,7 +13,9 @@
 */
 
 class Movie {
-    
+  public $title;
+  public $author;
+  public $type;
 
 }
 
