@@ -9,7 +9,8 @@
 
 
 1. Creare la classe Movie con qualche variabile di istanza (esempio: title, author, type);
-2.
+2. Creare il costruttore facendogli passare i 3 parametri;
+3. Creare una funzione che mi restituisce tutte le informazioni del film
 */
 
 class Movie {
@@ -23,6 +24,13 @@ class Movie {
     $this->type = $_type;
   }
 
+  public function getFullMovieInfo(){
+    return 'Titolo: ' . ' ' . $this->title . ' ' . 'Regista: ' . ' ' . $this->author . ' ' . 'Genere: ' . ' ' . $this->type;
+  }
+
 }
 
+$spiderman = new Movie('Spiderman', 'Sam Raimi', 'Supereroi');
+
+var_dump($spiderman);
 ?>
