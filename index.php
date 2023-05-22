@@ -25,12 +25,14 @@ class Movie {
   }
 
   public function getFullMovieInfo(){
-    return 'Titolo: ' . ' ' . $this->title . ' ' . 'Regista: ' . ' ' . $this->author . ' ' . 'Genere: ' . ' ' . $this->type;
+    return 'Titolo:' . ' ' . $this->title . ' ' . 'Regista:' . ' ' . $this->author . ' ' . 'Genere:' . ' ' . $this->type;
   }
 
 }
 
 $spiderman = new Movie('Spiderman', 'Sam Raimi', 'Supereroi');
+$inception = new Movie('Inception', 'Cristopher Nolan', 'Thriller');
+$americanPsycho = new Movie('American Psycho', 'Mary Harron', 'Horror');
+$inception = new Movie('Inception', 'Cristopher Nolan', 'Thriller');
 
-var_dump($spiderman);
-?>
+var_dump($spiderman->getFullMovieInfo());
