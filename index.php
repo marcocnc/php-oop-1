@@ -11,28 +11,59 @@
 1. Creare la classe Movie con qualche variabile di istanza (esempio: title, author, type);
 2. Creare il costruttore facendogli passare i 3 parametri;
 3. Creare una funzione che mi restituisce tutte le informazioni del film
+4. Dopo aver stilato un markup molto basico, spostare i dati in un array che verrà ciclato in modo tale da stamparli tutti dinamicamente
 */
 
-class Movie {
-  public $title;
-  public $author;
-  public $type;
+require_once __DIR__ . '/models/Movie.php';
 
-  function __construct($_title, $_author, $_type){
-    $this->title = $_title;
-    $this->author = $_author;
-    $this->type = $_type;
-  }
+$movies = [
+  new Movie('Spiderman', 'Sam Raimi', 'Supereroi'),
+  new Movie('Inception', 'Cristopher Nolan', 'Thriller'),
+  new Movie('American Psycho', 'Mary Harron', 'Horror'),
+  new Movie('Inception', 'Cristopher Nolan', 'Thriller'),
+  new Movie('Friday 13th', 'Sean S. Cunningham', 'Horror'),
+  new Movie('Matrix', 'Lana e Lilly Wachowski', 'Fantascienza'),
+  new Movie('Venom', 'Ruben Fleischer', 'Supereroi'),
+  new Movie('Fast & Furious', 'Rob Cohen', 'Thriller'),
+];
 
-  public function getFullMovieInfo(){
-    return 'Titolo:' . ' ' . $this->title . ' ' . 'Regista:' . ' ' . $this->author . ' ' . 'Genere:' . ' ' . $this->type;
-  }
 
-}
+?>
 
-$spiderman = new Movie('Spiderman', 'Sam Raimi', 'Supereroi');
-$inception = new Movie('Inception', 'Cristopher Nolan', 'Thriller');
-$americanPsycho = new Movie('American Psycho', 'Mary Harron', 'Horror');
-$inception = new Movie('Inception', 'Cristopher Nolan', 'Thriller');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-var_dump($spiderman->getFullMovieInfo());
+  <title>PHP OOP 1</title>
+</head>
+<body>
+  <h1 class="text-center pt-5 pb-2">Lista film</h1>
+  <div class="container">
+      <table class="table border">
+
+        <thead>
+          <tr>
+            <th scope="col">Titolo</th>
+            <th scope="col">Regista</th>
+            <th scope="col">Genere</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php foreach($movies as $movie):?>
+            <tr>
+              <th scope="row"> <?php echo $movie->title?> </th>
+              <td> <?php echo $movie->author?> </td>
+              <td> <?php echo $movie->type?> </td>
+            </tr>
+          <?php endforeach;  ?>
+        </tbody>
+        
+      </table>
+  </div>
+</body>
+</html>
